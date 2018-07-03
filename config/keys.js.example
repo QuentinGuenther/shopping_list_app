@@ -1,0 +1,11 @@
+/*
+ * This is a template file for ./keys.js
+ * Create a keys.js file in this directory then copy this template into 
+ * the file with the appropriate info.
+ *
+ * The mongoURI variable is the URI address of the mongodb.
+ */
+
+module.exports = {
+	mongoURI: 'mongodb://YOUR_MONGO_URI'
+};
