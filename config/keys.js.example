@@ -4,8 +4,13 @@
  * the file with the appropriate info.
  *
  * The mongoURI variable is the URI address of the mongodb.
+ * The Google clientID and clientSecret are obtained by Google for oauth login.
  */
 
 module.exports = {
-	mongoURI: 'mongodb://YOUR_MONGO_URI'
+	mongoURI: 'mongodb://YOUR_MONGO_URI',
+	google: {
+		clientID: 'YOUR_CLIENT_ID',
+		clientSecret: 'YOUR_CLIENT_SECRET'
+	}
 };
