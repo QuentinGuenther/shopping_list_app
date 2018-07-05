@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 
 // API Routes
 const items = require('./routes/api/items');
+const lists = require('./routes/api/lists');
+const groups = require('./routes/api/groups');
 
 const app = express();
 
@@ -31,6 +33,8 @@ mongoose
 //
 
 app.use('/api/items', items);
+app.use('/api/lists', lists);
+app.use('/api/groups', groups);
 
 // Set port for server to run on
 const port = process.env.PORT || 5000;
