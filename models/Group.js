@@ -11,14 +11,14 @@ const Schema = mongoose.Schema;
 const ListSchema = require('./List').ListSchema;
 
 const GroupSchema = new Schema({
-	lists: [ListSchema],
+	name: {
+		type: String,
+		required: true
+	},
 	date: {
 		type: Date,
 		default: Date.now
 	}
 });
 
-module.exports = {
-	GroupSchema,
-	Group = mongoose.model('group', GroupSchema)
-};
+module.exports = Group = mongoose.model('group', GroupSchema);
