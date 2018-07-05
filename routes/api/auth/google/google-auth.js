@@ -2,10 +2,10 @@ const router = require('express').Router();
 const passport = require('passport');
 
 router.get('/', passport.authenticate('google', {
-	scope: ['profile']
+	scope: ['profile', 'email']
 }));
 
-router.get('/redirect', (req, res) => {
+router.get('/redirect', passport.authenticate('google'), (req, res) => {
 	res.send('You reached the calback!');
 });
 
