@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 const items = require('./routes/api/items');
 const lists = require('./routes/api/lists');
 const groups = require('./routes/api/groups');
+const authGoogle = require('./routes/api/auth/google/google-auth');
+
+// Passport Config
+const passportGoogle = require('./config/passport-google.config');
 
 const app = express();
 
@@ -35,6 +39,7 @@ mongoose
 app.use('/api/items', items);
 app.use('/api/lists', lists);
 app.use('/api/groups', groups);
+app.use('/api/auth/google', authGoogle);
 
 // Set port for server to run on
 const port = process.env.PORT || 5000;
