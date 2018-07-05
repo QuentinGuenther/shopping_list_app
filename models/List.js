@@ -8,17 +8,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ItemSchema = require('./Item').ItemSchema;
-
 const ListSchema = new Schema({
-	items: [ItemSchema],
+	group_id: {
+		type: Schema.Types.ObjectId,
+		ref: 'group',
+		required: true
+	},
+	name: {
+		type: String,
+		required: true
+	},
 	date: {
 		type: Date,
 		default: Date.now
 	}
 });
 
-module.exports = {
-	ListSchema,
-	List = mongoose.model('list', ListSchema)
-};
+module.exports = List = mongoose.model('list', ListSchema);
