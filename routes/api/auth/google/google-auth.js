@@ -6,7 +6,7 @@ router.get('/', passport.authenticate('google', {
 }));
 
 router.get('/redirect', passport.authenticate('google'), (req, res) => {
-	res.send('You reached the calback!');
+	res.sendStatus(200);
 });
 
 module.exports = router;
