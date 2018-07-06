@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 // API Routes
 const items = require('./routes/api/items');
@@ -11,10 +13,23 @@ const authGoogle = require('./routes/api/auth/google/google-auth');
 // Passport Config
 const passportGoogle = require('./config/passport-google.config');
 
+const sessionKeys = require('./config/keys').session;
+
 const app = express();
 
 // BodyParser Middleware
 app.use(bodyParser.json());
+
+// Initialize cookieSession
+app.use(cookieSession({
+  maxAge: sessionKeys.lifespan,
+  keys: [sessionKeys.cookieKey]
+}))
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // DB Config
 const db = require('./config/keys').mongoURI;
