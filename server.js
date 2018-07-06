@@ -8,6 +8,7 @@ const passport = require('passport');
 const items = require('./routes/api/items');
 const lists = require('./routes/api/lists');
 const groups = require('./routes/api/groups');
+const auth = require('./routes/api/auth/auth');
 const authGoogle = require('./routes/api/auth/google/google-auth');
 
 // Passport Config
@@ -54,6 +55,7 @@ mongoose
 app.use('/api/items', items);
 app.use('/api/lists', lists);
 app.use('/api/groups', groups);
+app.use('/api/auth', auth);
 app.use('/api/auth/google', authGoogle);
 
 // Set port for server to run on
